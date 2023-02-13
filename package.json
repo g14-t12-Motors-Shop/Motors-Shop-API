@@ -1,0 +1,13 @@
+{
+  "name": "Motors_Shop_API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
