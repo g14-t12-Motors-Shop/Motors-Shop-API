@@ -1,24 +1,28 @@
-import { IVehicleRequest } from "./../../interfaces/vehicle/index";
+import { IVehicleRequest } from "../../interfaces/vehicle/index";
 import { Request, Response } from "express";
-import CreateVehicleService from "../../services/vehicle/CreateVehicle.service";
+import createVehicleService from "../../services/vehicle/CreateVehicle.service";
 
-const CreateVehicleController = async (req: Request, res: Response) => {
+const createVehicleController = async (req: Request, res: Response) => {
   try {
     const { title, price, year, mileage, vehicleType, description, images } =
       req.body;
-    const owner = req.headers.authorization;
+    const { id } = req.user;
 
-    const newVehicle = await CreateVehicleService({
-      title,
-      price,
-      year,
-      mileage,
-      vehicleType,
-      description,
-      owner,
-      images,
-    });
+    const newVehicle = await createVehicleService(
+      {
+        title,
+        price,
+        year,
+        mileage,
+        vehicleType,
+        description,
+        images,
+      },
+      id
+    );
 
     return res.status(201).json(newVehicle);
   } catch (error) {}
 };
+
+export default createVehicleController;

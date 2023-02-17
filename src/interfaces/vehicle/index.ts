@@ -1,3 +1,4 @@
+import { User } from "../../entities/user.entity";
 import { VehicleImages } from "../../entities/vehicleImages.entity";
 
 export interface IVehicleRequest {
@@ -7,6 +8,5 @@ export interface IVehicleRequest {
   mileage: number;
   vehicleType: string;
   description: string;
-  owner: User;
   images: VehicleImages;
 }

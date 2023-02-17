@@ -1,9 +1,9 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Vehicle } from "./vehicle.entity";
 
-@Entity()
+@Entity("vehicle_images")
 export class VehicleImages {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column("varchar")

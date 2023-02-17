@@ -2,15 +2,17 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from "./user.entity";
 import { VehicleImages } from "./vehicleImages.entity";
 
-@Entity()
+@Entity("vehicles")
 export class Vehicle {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column("varchar", { length: 50 })
@@ -37,8 +39,9 @@ export class Vehicle {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  //   owner
+  @ManyToOne(() => User)
+  owner: User;
 
   @OneToMany(() => VehicleImages, (VehicleImages) => VehicleImages.vehicle)
-  images: VehicleImages;
+  images: VehicleImages[];
 }
