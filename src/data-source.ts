@@ -1,6 +1,11 @@
 import { DataSource } from "typeorm";
 import "reflect-metadata";
 import "dotenv/config";
+import { User } from "./entities/user.entity";
+import { Address } from "./entities/address.entity";
+import { Vehicle } from "./entities/vehicle.entity";
+import { VehicleImages } from "./entities/vehicleImages.entity";
+import { initialMigration1677078053932 } from "./migrations/1677078053932-initialMigration";
 
 export const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -19,7 +24,7 @@ export const AppDataSource = new DataSource(
         database: process.env.POSTGRES_DB,
         logging: true,
         synchronize: false,
-        entities: ["src/entities/*.ts"],
-        migrations: ["src/migrations/*.ts"],
+        entities: [User, Address, Vehicle, VehicleImages],
+        migrations: [initialMigration1677078053932],
       }
 );
