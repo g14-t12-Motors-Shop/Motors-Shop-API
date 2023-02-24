@@ -3,6 +3,7 @@ import createVehicleController from "../controllers/vehicle/CreateVehicle.contro
 import listVehiclesByUserController from "../controllers/vehicle/listVehiclesByUser.controller";
 import listVehiclesController from "../controllers/vehicle/ListVehicle.controller";
 import listVehicleByIdController from "../controllers/vehicle/ListVehicleById.controller";
+import updateVehicleController from "../controllers/vehicle/updateVehicle.controller";
 
 import getAuthMiddleware from "../middlewares/getAuth.middleware";
 import ensureIsOwnerMiddleware from "../middlewares/ensureIsOwner.middleware";
@@ -19,6 +20,12 @@ vehicleRoutes.delete(
   getAuthMiddleware,
   ensureIsOwnerMiddleware,
   deleteVehicleController
+);
+vehicleRoutes.patch(
+  "/:id",
+  getAuthMiddleware,
+  ensureIsOwnerMiddleware,
+  updateVehicleController
 );
 
 export default vehicleRoutes;

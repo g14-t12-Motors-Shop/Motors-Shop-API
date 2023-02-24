@@ -10,3 +10,13 @@ export interface IVehicleRequest {
   description: string;
   images: string[];
 }
+
+export interface IVehicleUpdateRequest {
+  title?: string;
+  price?: number;
+  year?: number;
+  mileage?: number;
+  vehicleType?: string;
+  description?: string;
+  images?: string[];
+}
