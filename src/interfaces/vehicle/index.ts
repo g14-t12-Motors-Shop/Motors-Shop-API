@@ -8,5 +8,5 @@ export interface IVehicleRequest {
   mileage: number;
   vehicleType: string;
   description: string;
-  images: VehicleImages;
+  images: string[];
 }
