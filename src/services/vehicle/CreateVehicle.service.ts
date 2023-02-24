@@ -45,8 +45,6 @@ const createVehicleService = async (
     newVehicleImages.push(item);
   });
 
-  console.log(newVehicleImages);
-
   const newVehicle = vehicleRepository.create({
     title,
     price,
