@@ -17,7 +17,7 @@
 
 ## 1. Visão Geral
 
-Aplicação front-end de leilão, compra e venda de veículos..
+Aplicação back-end de leilão, compra e venda de veículos..
 
 Logo abaixo temos a lista de tecnologias usadas:
 
