@@ -3,7 +3,7 @@ import { AppDataSource } from "../data-source";
 import { User } from "../entities/user.entity";
 import AppError from "../errors/appError";
 
-const ensureIsOwnerMiddleware = async (
+const ensureIsOwnerVehicleMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -35,4 +35,4 @@ const ensureIsOwnerMiddleware = async (
   return next();
 };
 
-export default ensureIsOwnerMiddleware;
+export default ensureIsOwnerVehicleMiddleware;

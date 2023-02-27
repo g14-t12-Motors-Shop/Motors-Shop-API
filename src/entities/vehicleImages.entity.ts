@@ -9,6 +9,6 @@ export class VehicleImages {
   @Column("varchar")
   imageUrl: string;
 
-  @ManyToOne(() => Vehicle, (Vehicle) => Vehicle.images)
+  @ManyToOne(() => Vehicle, (Vehicle) => Vehicle.images, {onDelete: "CASCADE"})
   vehicle: Vehicle;
 }
