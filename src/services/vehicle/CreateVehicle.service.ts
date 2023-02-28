@@ -38,11 +38,12 @@ const createVehicleService = async (
   const newVehicleImages: VehicleImages[] = [];
 
   images.map((image) => {
-    const item = vehicleImageRepository.create({
-      imageUrl: image,
-    });
-
-    newVehicleImages.push(item);
+    if (image !== "") {
+      const item = vehicleImageRepository.create({
+        imageUrl: image,
+      });
+      newVehicleImages.push(item);
+    }
   });
 
   const newVehicle = vehicleRepository.create({
