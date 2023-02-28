@@ -1,6 +1,7 @@
 import { IVehicleRequest } from "../../interfaces/vehicle/index";
 import { Request, Response } from "express";
 import createVehicleService from "../../services/vehicle/CreateVehicle.service";
+import AppError from "../../errors/appError";
 
 const createVehicleController = async (req: Request, res: Response) => {
   try {
@@ -22,7 +23,13 @@ const createVehicleController = async (req: Request, res: Response) => {
     );
 
     return res.status(201).json(newVehicle);
-  } catch (error) {}
+  } catch (error) {
+    if (error instanceof AppError) {
+      return res.status(error.statusCode).json({
+        message: error.message,
+      });
+    }
+  }
 };
 
 export default createVehicleController;
