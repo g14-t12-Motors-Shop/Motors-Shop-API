@@ -5,9 +5,9 @@ import { User } from "./entities/user.entity";
 import { Address } from "./entities/address.entity";
 import { Vehicle } from "./entities/vehicle.entity";
 import { VehicleImages } from "./entities/vehicleImages.entity";
-import { initialMigration1677078053932 } from "./migrations/1677078053932-initialMigration";
-import { fourthMigration1677502759894 } from "./migrations/1677502759894-fourthMigration";
-import { fifthMigration1677505051919 } from "./migrations/1677505051919-fifthMigration";
+import { Message } from "./entities/message.entity";
+import { initialMigration1677511688851 } from "./migrations/1677511688851-initialMigration";
+import { initialMigration1677511807996 } from "./migrations/1677511807996-initialMigration";
 
 export const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -26,7 +26,7 @@ export const AppDataSource = new DataSource(
         database: process.env.POSTGRES_DB,
         logging: true,
         synchronize: false,
-        entities: [User, Address, Vehicle, VehicleImages],
-        migrations: [initialMigration1677078053932, fourthMigration1677502759894, fifthMigration1677505051919],
+        entities: [User, Address, Vehicle, VehicleImages, Message],
+        migrations: [initialMigration1677511688851, initialMigration1677511807996],
       }
 );

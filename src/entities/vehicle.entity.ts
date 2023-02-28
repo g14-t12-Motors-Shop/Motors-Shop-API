@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Message } from "./message.entity";
 import { User } from "./user.entity";
 import { VehicleImages } from "./vehicleImages.entity";
 
@@ -42,6 +43,9 @@ export class Vehicle {
   @ManyToOne(() => User, { onDelete: "CASCADE" })
   owner: User;
 
-  @OneToMany(() => VehicleImages, (VehicleImages) => VehicleImages.vehicle)
+  @OneToMany(() => VehicleImages, (vehicleImages) => vehicleImages.vehicle)
   images: VehicleImages[];
+
+  @OneToMany(() => Message, (message) => message.vehicle)
+  message: Message[];
 }
