@@ -33,12 +33,13 @@ const updateVehicleService = async (
     const newVehicleImages: VehicleImages[] = [];
 
     images.map((image) => {
-      const item = vehicleImageRepository.create({
-        imageUrl: image,
-        vehicle: findVehicle,
-      });
-
-      newVehicleImages.push(item);
+      if (image !== "") {
+        const item = vehicleImageRepository.create({
+          imageUrl: image,
+          vehicle: findVehicle,
+        });
+        newVehicleImages.push(item);
+      }
     });
 
     await vehicleImageRepository.save(newVehicleImages);

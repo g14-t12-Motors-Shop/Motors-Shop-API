@@ -24,7 +24,7 @@ vehicleRoutes.delete(
 vehicleRoutes.patch(
   "/:id",
   getAuthMiddleware,
-  ensureIsOwnerMiddleware,
+  ensureIsOwnerVehicleMiddleware,
   updateVehicleController
 );
 
