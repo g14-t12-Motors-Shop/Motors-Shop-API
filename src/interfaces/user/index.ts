@@ -1,4 +1,4 @@
-import { IAddressRequest } from "../address"
+import { IAddressRequest, IAddressUpdate } from "../address"
 
 export interface IUserRequest {
     name: string
@@ -32,4 +32,15 @@ export interface IUser {
 export interface IUserLogin {
     email: string
     password: string
+}
+
+export interface IUserUpdate {
+    name?: string
+    email?: string
+    phone?: string
+    birthdate?: Date
+    description?: string
+    accountType?: string
+    password?: string
+    address?: IAddressUpdate
 }

@@ -39,7 +39,7 @@ export class Vehicle {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: "CASCADE" })
   owner: User;
 
   @OneToMany(() => VehicleImages, (vehicleImages) => vehicleImages.vehicle, {

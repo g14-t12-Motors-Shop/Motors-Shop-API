@@ -54,6 +54,6 @@ export class User {
   @JoinColumn()
   address: Address;
 
-  @OneToMany(() => Vehicle, (vehicle) => vehicle.owner, { onDelete: "CASCADE" })
+  @OneToMany(() => Vehicle, (vehicle) => vehicle.owner)
   vehicle: Vehicle[];
 }

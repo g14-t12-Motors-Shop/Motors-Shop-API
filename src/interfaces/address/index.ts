@@ -16,3 +16,12 @@ export interface IAddress {
     number?: number
     complement?: string
 }
+
+export interface IAddressUpdate {
+    state?: string
+    city?: string
+    street?: string
+    zipCode?: string
+    number?: number
+    complement?: string
+}
