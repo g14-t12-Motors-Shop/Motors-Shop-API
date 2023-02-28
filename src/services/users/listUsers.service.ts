@@ -7,7 +7,6 @@ const listUsersService = async (): Promise<User[]> => {
     where: {},
     relations: {
      address: true,
-     vehicle: true
     }
 
   });
