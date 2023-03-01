@@ -10,6 +10,7 @@ import {
 import { Exclude } from "class-transformer";
 import { Address } from "./address.entity";
 import { Vehicle } from "./vehicle.entity";
+import { Message } from "./message.entity";
 
 @Entity("users")
 export class User {
@@ -56,4 +57,7 @@ export class User {
 
   @OneToMany(() => Vehicle, (vehicle) => vehicle.owner)
   vehicle: Vehicle[];
+
+  @OneToMany(() => Message, (message) => message.owner)
+  message: Message[];
 }
