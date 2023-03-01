@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Message } from "./message.entity";
 import { User } from "./user.entity";
 import { VehicleImages } from "./vehicleImages.entity";
 
@@ -46,4 +47,7 @@ export class Vehicle {
     eager: true,
   })
   images: VehicleImages[];
+
+  @OneToMany(() => Message, (message) => message.vehicle)
+  message: Message[];
 }

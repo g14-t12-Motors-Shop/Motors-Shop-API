@@ -8,6 +8,20 @@ export interface IVehicleRequest {
   mileage: number;
   vehicleType: string;
   description: string;
+
+  images?: VehicleImages;
+}
+
+export interface IVehicle {
+  id: string;
+  title: string;
+  price: number;
+  year: number;
+  mileage: number;
+  vehicleType: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
   images: string[];
 }
 
