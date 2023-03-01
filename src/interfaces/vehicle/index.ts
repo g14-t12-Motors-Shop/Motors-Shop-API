@@ -8,6 +8,7 @@ export interface IVehicleRequest {
   mileage: number;
   vehicleType: string;
   description: string;
+
   images?: VehicleImages;
 }
 
@@ -21,5 +22,15 @@ export interface IVehicle {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  images?: VehicleImages;
+  images: string[];
+}
+
+export interface IVehicleUpdateRequest {
+  title?: string;
+  price?: number;
+  year?: number;
+  mileage?: number;
+  vehicleType?: string;
+  description?: string;
+  images?: string[];
 }
