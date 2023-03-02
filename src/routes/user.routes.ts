@@ -10,7 +10,7 @@ const userRoutes = Router();
 
 userRoutes.post("", createUserController);
 userRoutes.get("", getAuthMiddleware, listUsersController);
-userRoutes.get("/:id", getAuthMiddleware, showUserByIdController);
+userRoutes.get("/profile", getAuthMiddleware, showUserByIdController);
 userRoutes.patch("", getAuthMiddleware, updateUserController);
 userRoutes.delete("", getAuthMiddleware, deleteUserController);
 
