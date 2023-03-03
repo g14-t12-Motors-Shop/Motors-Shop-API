@@ -44,3 +44,8 @@ export interface IUserUpdate {
     password?: string
     address?: IAddressUpdate
 }
+
+export interface IUserForgotPassword {
+    email: string
+    password: string
+}
