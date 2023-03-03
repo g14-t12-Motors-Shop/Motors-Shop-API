@@ -43,7 +43,9 @@ export class Vehicle {
   @ManyToOne(() => User, { onDelete: "CASCADE" })
   owner: User;
 
-  @OneToMany(() => VehicleImages, (vehicleImages) => vehicleImages.vehicle)
+  @OneToMany(() => VehicleImages, (vehicleImages) => vehicleImages.vehicle, {
+    eager: true,
+  })
   images: VehicleImages[];
 
   @OneToMany(() => Message, (message) => message.vehicle)

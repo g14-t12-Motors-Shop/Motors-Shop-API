@@ -9,6 +9,7 @@ import { Message } from "./entities/message.entity";
 import { initialMigration1677511688851 } from "./migrations/1677511688851-initialMigration";
 import { initialMigration1677511807996 } from "./migrations/1677511807996-initialMigration";
 
+
 export const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
     ? {
@@ -28,5 +29,6 @@ export const AppDataSource = new DataSource(
         synchronize: false,
         entities: [User, Address, Vehicle, VehicleImages, Message],
         migrations: [initialMigration1677511688851, initialMigration1677511807996],
+
       }
 );
