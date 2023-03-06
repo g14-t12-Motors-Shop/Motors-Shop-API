@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Message } from "./message.entity";
 import { User } from "./user.entity";
 import { VehicleImages } from "./vehicleImages.entity";
 
@@ -33,15 +34,23 @@ export class Vehicle {
   @Column("varchar", { length: 500 })
   description: string;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: "CASCADE", eager: true })
   owner: User;
 
-  @OneToMany(() => VehicleImages, (VehicleImages) => VehicleImages.vehicle)
+  @OneToMany(() => VehicleImages, (vehicleImages) => vehicleImages.vehicle, {
+    eager: true,
+  })
   images: VehicleImages[];
+
+  @OneToMany(() => Message, (message) => message.vehicle)
+  message: Message[];
 }
