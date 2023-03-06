@@ -5,7 +5,7 @@ import AppError from "../../errors/appError";
 import { IUserUpdate } from "../../interfaces/user";
 import { Address } from "../../entities/address.entity";
 
-const updateUSerService = async ({name, email, phone, birthdate, description, accountType, password, address: addressRequest}: IUserUpdate, id: string): Promise<User> => {
+const updateUSerService = async ({name, email, cpf, phone, birthdate, description, accountType, password, address: addressRequest}: IUserUpdate, id: string): Promise<User> => {
     const userRepository = AppDataSource.getRepository(User);
     const addressRepository = AppDataSource.getRepository(Address)
 
@@ -42,6 +42,7 @@ const updateUSerService = async ({name, email, phone, birthdate, description, ac
         {
             name: name ? name : findUser.name,
             email: email ? email : findUser.email,
+            cpf: cpf ? cpf : findUser.cpf,
             phone: phone ? phone : findUser.phone,
             birthdate: birthdate ? birthdate : findUser.birthdate,
             description: description ? description : findUser.description,
