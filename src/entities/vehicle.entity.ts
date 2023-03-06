@@ -34,6 +34,9 @@ export class Vehicle {
   @Column("varchar", { length: 500 })
   description: string;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 
