@@ -2,6 +2,7 @@ import { Router } from "express";
 import createMessageController from "../controllers/message/createMessage.controller";
 import deleteMessageController from "../controllers/message/deleteMessage.controller";
 import listMessagesController from "../controllers/message/listMessages.controller";
+import listMessagesByVehicleController from "../controllers/message/listMessagesByVehicle.controller";
 import updateMessageController from "../controllers/message/updateMessage.controller";
 import ensureIsOwnerMessageMiddleware from "../middlewares/ensureIsOwnerMessage.middleware";
 import getAuthMiddleware from "../middlewares/getAuth.middleware";
@@ -10,6 +11,7 @@ const messageRoutes = Router();
 
 messageRoutes.post("/:id", getAuthMiddleware, createMessageController);
 messageRoutes.get("", listMessagesController);
+messageRoutes.get("/vehicle/:id", listMessagesByVehicleController);
 messageRoutes.patch(
   "/:id",
   getAuthMiddleware,
